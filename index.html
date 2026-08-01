@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Front Office — Almost Open</title>
+<meta name="description" content="Lead reactivation for your dormant customer list. $997 one time, no monthly fee. Drop your info and get the link the moment it opens.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://docs.google.com; script-src 'self' 'unsafe-inline'; img-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3efe4;
+    --paper-dim: #eae4d4;
+    --desk: #2c2924;
+    --ink: #1c1b19;
+    --ink-70: rgba(28,27,25,.7);
+    --ink-55: rgba(28,27,25,.55);
+    --ink-30: rgba(28,27,25,.3);
+    --ink-15: rgba(28,27,25,.15);
+    --stamp: #ac3a2a;
+    --stamp-dark: #8a2e21;
+    --carbon: #33506b;
+    --received: #3f6b4d;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--desk);
+    background-image:
+      radial-gradient(circle at 50% -10%, rgba(255,255,255,.05), transparent 60%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(20px, 6vw, 64px) 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--ink);
+  }
+
+  .ticket {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(28,27,25,.015) 0px, rgba(28,27,25,.015) 1px, transparent 1px, transparent 3px);
+    border: 1px solid var(--ink-15);
+    box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.4) inset;
+    padding: 28px 28px 24px;
+  }
+
+  .ticket::before,
+  .ticket::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: var(--desk);
+    border-radius: 50%;
+    top: 50%;
+  }
+  .ticket::before { left: -11px; }
+  .ticket::after { right: -11px; }
+
+  .ticket__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--ink-30);
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-family: 'Special Elite', cursive;
+    font-weight: 400;
+    font-size: clamp(28px, 6.5vw, 34px);
+    line-height: 1.18;
+    margin: 0 0 16px;
+    letter-spacing: -.01em;
+  }
+
+  .lede {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-70);
+    margin: 0 0 20px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    margin: 22px 0 4px;
+  }
+  .price-row__label {
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    white-space: nowrap;
+  }
+  .price-row__leader {
+    flex: 1;
+    border-bottom: 1.5px dotted var(--ink-30);
+    transform: translateY(-4px);
+  }
+  .price-row__value {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--stamp);
+    white-space: nowrap;
+  }
+  .price-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    margin: 0 0 20px;
+  }
+
+  .lede--tail { margin-bottom: 0; }
+
+  .tear {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 26px -28px;
+    padding: 0 28px;
+  }
+  .tear::before,
+  .tear::after {
+    content: "";
+    flex: 1;
+    border-top: 2px dashed var(--ink-30);
+  }
+  .tear span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-30);
+  }
+
+  .form-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    margin: 0 0 18px;
+  }
+
+  .field { margin-bottom: 18px; }
+
+  .field label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-70);
+    margin-bottom: 6px;
+  }
+  .field label .opt {
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink-30);
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid var(--ink-30);
+    background: transparent;
+    padding: 6px 2px 8px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    color: var(--ink);
+    resize: none;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--ink-30);
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--stamp);
+  }
+  .field textarea { min-height: 52px; line-height: 1.5; }
+
+  .method-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .method-option {
+    position: relative;
+  }
+  .method-option input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+  }
+  .method-option span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    padding: 8px 12px;
+    border: 1.5px solid var(--ink-30);
+    color: var(--ink-70);
+  }
+  .method-option span::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--ink-55);
+    flex-shrink: 0;
+  }
+  .method-option input:checked + span {
+    border-color: var(--stamp);
+    color: var(--ink);
+  }
+  .method-option input:checked + span::before {
+    background: var(--stamp);
+    border-color: var(--stamp);
+  }
+  .method-option input:focus-visible + span {
+    outline: 2px solid var(--stamp);
+    outline-offset: 2px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 14px 16px;
+    background: var(--stamp);
+    color: var(--paper);
+    border: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform .12s ease, background .12s ease;
+  }
+  button[type="submit"]:hover { background: var(--stamp-dark); }
+  button[type="submit"]:active { transform: scale(.97) rotate(-1deg); }
+  button[type="submit"]:disabled { opacity: .6; cursor: default; }
+
+  .microcopy {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-55);
+    margin: 12px 0 0;
+  }
+
+  .footnote {
+    margin: 24px -28px -24px;
+    padding: 18px 28px 20px;
+    background: rgba(51,80,107,.07);
+    border-top: 1px solid rgba(51,80,107,.25);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-70);
+  }
+
+  .confirm {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0 8px;
+  }
+  .confirm.is-visible { display: flex; }
+  .confirm .stamp-mark {
+    width: 108px;
+    height: 108px;
+    border: 3px solid var(--received);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--received);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    transform: rotate(-8deg) scale(.4);
+    opacity: 0;
+  }
+  .confirm.is-visible .stamp-mark {
+    animation: stamp-in .35s ease-out forwards;
+  }
+  @keyframes stamp-in {
+    to { transform: rotate(-8deg) scale(1); opacity: 1; }
+  }
+  .confirm p {
+    margin: 18px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-70);
+    max-width: 30ch;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .confirm.is-visible .stamp-mark { animation: none; transform: rotate(-8deg) scale(1); opacity: 1; }
+    button[type="submit"]:active { transform: none; }
+  }
+
+  @media (max-width: 400px) {
+    .ticket { padding: 24px 20px 20px; }
+    .footnote { margin: 24px -20px -20px; padding: 18px 20px 20px; }
+    .tear { margin: 24px -20px; padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="ticket">
+  <div class="ticket__head">
+    <span>AI Front Office &mdash; Intake</span>
+    <span id="ticketDate"></span>
+  </div>
+
+  <h1>The AI Front Office is almost open.</h1>
+
+  <p class="lede">The first piece is lead reactivation. I take your list of past customers and dormant leads and send a text campaign that brings some of them back. You bring the list and the offer, I build and send it.</p>
+
+  <div class="price-row">
+    <span class="price-row__label">Lead reactivation</span>
+    <span class="price-row__leader"></span>
+    <span class="price-row__value">$997</span>
+  </div>
+  <p class="price-note">One time &middot; no monthly fee</p>
+
+  <p class="lede lede--tail">The page goes live in days. Drop your info and I&rsquo;ll send you the link the moment it opens.</p>
+
+  <div class="tear" aria-hidden="true"><span>&#9986;</span></div>
+
+  <form id="intakeForm" novalidate>
+    <p class="form-eyebrow">Fill out to reserve your spot</p>
+
+    <div class="field">
+      <label for="f-name">Name</label>
+      <input type="text" id="f-name" name="name" autocomplete="name" required>
+    </div>
+
+    <div class="field">
+      <label for="f-contact">Email or phone</label>
+      <input type="text" id="f-contact" name="contact" autocomplete="email" placeholder="you@business.com or (555) 555-5555" required>
+    </div>
+
+    <div class="field">
+      <label for="f-business">Type of business <span class="opt">(optional)</span></label>
+      <input type="text" id="f-business" name="business" placeholder="e.g. HVAC, salon, dental">
+    </div>
+
+    <div class="field">
+      <label for="f-need">What would you most like handled? <span class="opt">(optional)</span></label>
+      <textarea id="f-need" name="need" placeholder="Answering the phone, following up on quotes..."></textarea>
+    </div>
+
+    <div class="field">
+      <label id="method-label">Preferred contact method</label>
+      <div class="method-group" role="radiogroup" aria-labelledby="method-label">
+        <label class="method-option">
+          <input type="radio" name="method" value="Call" required>
+          <span>Call</span>
+        </label>
+        <label class="method-option">
+          <input type="radio" name="method" value="Text" required>
+          <span>Text</span>
+        </label>
+        <label class="method-option">
+          <input type="radio" name="method" value="Email" required>
+          <span>Email</span>
+        </label>
+      </div>
+    </div>
+
+    <div style="position:absolute; left:-9999px;" aria-hidden="true">
+      <label for="f-company">Company</label>
+      <input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off">
+    </div>
+
+    <button type="submit">Send me the link</button>
+    <p class="microcopy">You&rsquo;ll get one email when the page opens. Nothing else.</p>
+  </form>
+
+  <div class="confirm" id="confirmBlock">
+    <div class="stamp-mark">Received</div>
+    <p>You&rsquo;re on the list. I&rsquo;ll email the link the moment the page opens.</p>
+  </div>
+
+  <p class="footnote">Lead reactivation is the entry point. The full AI Front Office also answers inquiries, follows up with new leads, and handles routine questions so you don&rsquo;t have to. Details come with the link.</p>
+</main>
+
+<script>
+  document.getElementById('ticketDate').textContent = new Date().toLocaleDateString('en-US', {
+    month: '2-digit', day: '2-digit', year: '2-digit'
+  }).replace(/\//g, '.');
+
+  // TODO: replace with your Google Form's action URL and entry IDs.
+  // See setup instructions from Claude for how to get these.
+  var GOOGLE_FORM_ACTION = 'REPLACE_WITH_FORM_RESPONSE_URL';
+  var FIELD_ENTRIES = {
+    name: 'REPLACE_WITH_ENTRY_ID',
+    contact: 'REPLACE_WITH_ENTRY_ID',
+    business: 'REPLACE_WITH_ENTRY_ID',
+    need: 'REPLACE_WITH_ENTRY_ID',
+    method: 'REPLACE_WITH_ENTRY_ID'
+  };
+
+  var form = document.getElementById('intakeForm');
+  var confirmBlock = document.getElementById('confirmBlock');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (form.company.value) {
+      form.style.display = 'none';
+      confirmBlock.classList.add('is-visible');
+      return;
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    var data = new FormData();
+    data.append(FIELD_ENTRIES.name, form.name.value);
+    data.append(FIELD_ENTRIES.contact, form.contact.value);
+    data.append(FIELD_ENTRIES.business, form.business.value);
+    data.append(FIELD_ENTRIES.need, form.need.value);
+    data.append(FIELD_ENTRIES.method, form.method.value);
+
+    var params = new URLSearchParams();
+    data.forEach(function (value, key) { params.append(key, value); });
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    }).then(function () {
+      form.style.display = 'none';
+      confirmBlock.classList.add('is-visible');
+    }).catch(function () {
+      form.style.display = 'none';
+      confirmBlock.classList.add('is-visible');
+    });
+  });
+</script>
+
+</body>
+</html>
