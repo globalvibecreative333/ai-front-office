@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prepare Your Business for What's Next — AI Front Office</title>
+<meta name="description" content="A paid diagnostic and implementation engagement that recovers leaking revenue, reduces owner dependence, captures critical operating knowledge, and prepares your business for a cleaner handoff.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://docs.google.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'none'; object-src 'none'; base-uri 'self';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #f0741c;
+    --orange-deep: #d9600f;
+    --orange-light: #f5a461;
+    --brown: #3b2415;
+    --brown-2: #4a2e1b;
+    --brown-3: #5a3820;
+    --cream: #fbf3e2;
+    --cream-dim: #f3e4c8;
+    --ink: #2b1b10;
+    --ink-70: rgba(43,27,16,.7);
+    --ink-55: rgba(43,27,16,.55);
+    --ink-40: rgba(43,27,16,.4);
+    --ink-15: rgba(43,27,16,.15);
+    --cream-80: rgba(251,243,226,.82);
+    --cream-60: rgba(251,243,226,.6);
+    --cream-35: rgba(251,243,226,.35);
+    --cream-18: rgba(251,243,226,.18);
+    --rust: #c94a2c;
+    --line: rgba(43,27,16,.14);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 800; margin: 0; letter-spacing: -.01em; }
+  em { font-style: normal; color: var(--brown); font-weight: 800; }
+  a { color: inherit; }
+  img, svg { max-width: 100%; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .wrap--narrow { max-width: 780px; }
+
+  .eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .eyebrow::before { content: ""; display: inline-block; width: 16px; height: 10px; background: var(--orange); transform: skewX(-18deg); flex-shrink: 0; }
+  .section--dark .eyebrow { color: var(--orange-light); }
+  .section--dark .eyebrow::before { background: var(--orange-light); }
+  .hero .eyebrow { color: var(--brown); }
+  .hero .eyebrow::before { background: var(--brown); }
+
+  /* Top bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(251,243,226,.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar__inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .brand__badge {
+    background: var(--brown);
+    color: var(--cream);
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: .02em;
+    padding: 6px 10px;
+    transform: skewX(-10deg);
+    line-height: 1;
+  }
+  .brand__badge span { display: inline-block; transform: skewX(10deg); }
+  .brand__text { font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
+  .brand__text b { color: var(--orange); font-weight: 800; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+    white-space: nowrap;
+  }
+  .btn--primary { background: var(--orange); color: var(--cream); }
+  .btn--primary:hover { background: var(--orange-deep); }
+  .btn--primary:active { transform: scale(.98); }
+  .btn--dark { background: var(--brown); color: var(--cream); }
+  .btn--dark:hover { background: var(--brown-2); }
+  .btn--ghost-light { background: transparent; color: var(--cream); border-color: var(--cream-35); font-size: 13px; padding: 10px 18px; }
+  .btn--ghost-light:hover { border-color: var(--cream-60); }
+  .topbar .btn { padding: 9px 18px; font-size: 13px; border-radius: 8px; }
+
+  /* Hero */
+  .hero {
+    background: var(--orange);
+    background-image:
+      linear-gradient(115deg, transparent 0%, transparent 38%, rgba(255,255,255,.08) 40%, transparent 42%, transparent 100%),
+      linear-gradient(115deg, transparent 0%, transparent 58%, rgba(59,36,21,.06) 60%, transparent 63%, transparent 100%),
+      radial-gradient(circle at 92% 8%, rgba(255,255,255,.14), transparent 45%);
+    color: var(--brown);
+    padding: 84px 0 76px;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+    max-width: 18ch;
+    text-wrap: balance;
+  }
+  .hero h1 em { color: var(--brown); font-weight: 900; }
+  .hero__lede {
+    margin: 24px 0 0;
+    max-width: 56ch;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.65;
+    color: rgba(59,36,21,.88);
+  }
+  .hero__cta { margin-top: 36px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .hero__cta .link-light {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .02em;
+    color: var(--brown);
+    text-decoration: none;
+    border-bottom: 1.5px dotted rgba(59,36,21,.4);
+    padding-bottom: 2px;
+  }
+  .hero__cta .link-light:hover { border-color: var(--brown); }
+
+  /* Generic sections */
+  section { padding: 76px 0; }
+  .section--light { background: var(--cream); }
+  .section--dim { background: var(--cream-dim); }
+  .section--dark { background: var(--brown); color: var(--cream-80); }
+  .section--dark h2, .section--dark h3 { color: var(--cream); }
+  .section--dark .sub { color: var(--cream-60); }
+
+  h2.h-title {
+    font-size: clamp(26px, 3.4vw, 36px);
+    line-height: 1.2;
+    max-width: 26ch;
+    text-wrap: balance;
+  }
+  .sub {
+    margin: 16px 0 0;
+    font-size: 16.5px;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink-70);
+    max-width: 62ch;
+  }
+  .section-head { margin-bottom: 44px; }
+
+  /* Recognition checklist */
+  .recog-list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 14px; }
+  .recog-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+  .recog-list .mark {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--cream);
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  /* Financial reasons */
+  .reason-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; }
+  .reason-card { background: var(--brown-2); border-radius: 12px; padding: 26px 24px; }
+  .reason-card .num { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 13px; color: var(--orange-light); letter-spacing: .04em; }
+  .reason-card p { margin: 10px 0 0; font-size: 15px; font-weight: 500; line-height: 1.6; color: var(--cream-80); }
+
+  /* Layers */
+  .layer-list { margin-top: 44px; display: grid; gap: 14px; }
+  .layer {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 44px 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .layer__num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--orange);
+  }
+  .layer__name { font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--rust); margin: 0 0 8px; }
+  .layer__what { font-size: 16px; font-weight: 500; line-height: 1.55; color: var(--ink); margin: 0; }
+  .layer__benefit-label { font-weight: 700; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); margin: 0 0 8px; }
+  .layer__benefit { font-size: 15.5px; font-weight: 500; line-height: 1.55; color: var(--ink-70); margin: 0; }
+  .named-systems {
+    margin-top: 32px;
+    padding: 22px 26px;
+    background: var(--cream-dim);
+    border-left: 4px solid var(--orange);
+    border-radius: 0 12px 12px 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink-70);
+  }
+  .named-systems strong { color: var(--ink); font-weight: 700; }
+
+  /* Extraction section */
+  .extract-grid { margin-top: 44px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
+  .extract-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+  .extract-points li { display: flex; gap: 14px; font-size: 15.5px; font-weight: 500; line-height: 1.6; color: var(--cream-80); }
+  .extract-points li::before { content: "—"; color: var(--orange-light); flex-shrink: 0; font-weight: 700; }
+  .extract-side {
+    background: var(--brown-2);
+    border-radius: 14px;
+    border: 1px solid var(--cream-18);
+    padding: 30px 28px;
+  }
+  .extract-side h3 { font-size: 19px; color: var(--cream); margin-bottom: 14px; }
+  .extract-side p { font-size: 15px; font-weight: 500; line-height: 1.65; color: var(--cream-80); margin: 0 0 14px; }
+  .extract-side p:last-child { margin-bottom: 0; }
+  .extract-side .callout {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--cream-35);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .01em;
+    color: var(--orange-light);
+    line-height: 1.6;
+  }
+
+  /* Process phases */
+  .phase-list { margin-top: 48px; display: grid; gap: 0; }
+  .phase {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+  .phase:last-child { border-bottom: 1px solid var(--line); }
+  .phase__num { font-weight: 700; font-size: 12px; color: var(--orange); letter-spacing: .06em; text-transform: uppercase; }
+  .phase__num span { display: block; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 32px; color: var(--brown); margin-top: 4px; }
+  .phase h3 { font-size: 21px; margin-bottom: 8px; }
+  .phase p { margin: 0; font-size: 15.5px; font-weight: 500; line-height: 1.6; color: var(--ink-70); max-width: 56ch; }
+
+  /* Deliverables */
+  .deliver-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 14px 32px; }
+  .deliver-grid li { list-style: none; display: flex; gap: 12px; font-size: 15.5px; font-weight: 500; line-height: 1.55; padding: 4px 0; }
+  .deliver-grid li::before { content: "✓"; color: var(--orange); font-weight: 800; flex-shrink: 0; }
+  .deliver-note { margin-top: 32px; font-size: 14.5px; font-weight: 500; color: var(--ink-55); font-style: italic; }
+
+  /* Fit section */
+  .fit-grid { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fit-col { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 32px; }
+  .fit-col--no { background: var(--cream-dim); }
+  .fit-col h3 { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 20px; font-weight: 800; }
+  .fit-col--yes h3 { color: #3f6b4d; }
+  .fit-col--no h3 { color: var(--rust); }
+  .fit-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .fit-col li { display: flex; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1.55; color: var(--ink-70); }
+  .fit-col--yes li::before { content: "✓"; color: #3f6b4d; flex-shrink: 0; font-weight: 700; }
+  .fit-col--no li::before { content: "✕"; color: var(--rust); flex-shrink: 0; font-weight: 700; }
+
+  /* Path & investment */
+  .path-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; }
+  .path-card {
+    background: var(--brown-2);
+    border-radius: 16px;
+    border: 1px solid var(--cream-18);
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .path-card--featured { border-color: var(--orange); background: var(--brown-3); }
+  .path-card .tag {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 14px;
+  }
+  .path-card h3 { font-size: 21px; color: var(--cream); margin-bottom: 10px; }
+  .path-card .price { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 24px; color: var(--orange-light); margin: 4px 0 14px; }
+  .path-card .price small { font-size: 12px; color: var(--cream-60); font-weight: 500; display: block; margin-top: 4px; letter-spacing: .01em; }
+  .path-card p.desc { font-size: 14.5px; font-weight: 500; line-height: 1.6; color: var(--cream-80); margin: 0; flex-grow: 1; }
+  .continuity-note {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border: 1px dashed var(--cream-35);
+    border-radius: 12px;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--cream-80);
+  }
+  .continuity-note strong { color: var(--cream); }
+  .path-cta { margin-top: 40px; text-align: center; }
+
+  /* Boundaries */
+  .boundary-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 16px; }
+  .boundary-list li { display: flex; gap: 14px; font-size: 15.5px; font-weight: 500; line-height: 1.6; color: var(--ink-70); padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  .boundary-list li:last-of-type { border-bottom: none; }
+  .boundary-list li::before { content: "✕"; color: var(--rust); flex-shrink: 0; font-weight: 700; }
+  .boundary-affirm {
+    margin-top: 30px;
+    padding: 24px 26px;
+    background: #fff;
+    border-left: 4px solid #3f6b4d;
+    border-radius: 0 12px 12px 0;
+    font-size: 15.5px;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  /* About */
+  .about-wrap { display: grid; grid-template-columns: 120px 1fr; gap: 32px; align-items: start; margin-top: 40px; }
+  .about-mark {
+    width: 88px; height: 88px;
+    background: var(--brown);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 34px; color: var(--orange-light);
+  }
+  .about-wrap p { margin: 0 0 14px; font-size: 16px; font-weight: 500; line-height: 1.65; color: var(--ink-70); }
+  .about-wrap p:last-child { margin-bottom: 0; }
+  .about-wrap .name { font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--rust); margin-bottom: 10px; }
+
+  /* Contact / final CTA */
+  .contact-panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 44px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .contact-panel__intro h2 { font-size: 28px; margin-bottom: 14px; }
+  .contact-panel__intro p { font-size: 15.5px; font-weight: 500; line-height: 1.65; color: var(--ink-70); margin: 0 0 14px; }
+  .contact-panel__intro ul { margin: 20px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .contact-panel__intro li { font-size: 14.5px; font-weight: 500; color: var(--ink-55); display: flex; gap: 10px; }
+  .contact-panel__intro li::before { content: "→"; color: var(--orange); font-weight: 700; }
+
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-weight: 600; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-70); margin-bottom: 6px; }
+  .field label .opt { text-transform: none; letter-spacing: 0; color: var(--ink-40); font-weight: 400; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid var(--ink-15);
+    background: transparent;
+    padding: 8px 2px 9px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    resize: none;
+  }
+  .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%232b1b10' fill-opacity='0.4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--ink-40); }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--orange); }
+  .field textarea { min-height: 56px; line-height: 1.5; }
+
+  form button[type="submit"] {
+    width: 100%;
+    margin-top: 8px;
+    padding: 15px 16px;
+    background: var(--orange);
+    color: var(--cream);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: background .15s ease, transform .12s ease;
+  }
+  form button[type="submit"]:hover { background: var(--orange-deep); }
+  form button[type="submit"]:active { transform: scale(.98); }
+  form button[type="submit"]:disabled { opacity: .6; cursor: default; }
+  .form-microcopy { text-align: center; font-size: 11px; font-weight: 500; color: var(--ink-40); margin: 12px 0 0; }
+
+  .confirm { display: none; flex-direction: column; align-items: center; text-align: center; padding: 30px 10px; }
+  .confirm.is-visible { display: flex; }
+  .confirm .stamp-mark {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: #3f6b4d; color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px; letter-spacing: .04em; text-transform: uppercase;
+    transform: scale(.4); opacity: 0;
+  }
+  .confirm.is-visible .stamp-mark { animation: stamp-in .35s ease-out forwards; }
+  @keyframes stamp-in { to { transform: scale(1); opacity: 1; } }
+  .confirm p { margin: 18px 0 0; font-size: 15px; font-weight: 500; line-height: 1.6; color: var(--ink-70); max-width: 32ch; }
+
+  footer {
+    background: var(--brown);
+    color: var(--cream-60);
+    padding: 36px 0;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--cream-60); text-decoration: none; }
+  footer a:hover { color: var(--cream); }
+
+  @media (max-width: 860px) {
+    .extract-grid, .about-wrap, .contact-panel { grid-template-columns: 1fr; gap: 32px; }
+    .layer { grid-template-columns: 1fr; gap: 14px; }
+    .layer__num { display: none; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .contact-panel { padding: 30px 24px; }
+  }
+  @media (max-width: 560px) {
+    section { padding: 56px 0; }
+    .hero { padding: 64px 0 52px; }
+    .phase { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#top">
+      <span class="brand__badge"><span>AFO</span></span>
+      <span class="brand__text">AI Front <b>Office</b></span>
+    </a>
+    <a class="btn btn--primary" href="#contact">Request the Diagnostic</a>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">For owners thinking about what's next</span>
+    <h1>Prepare the business you built for its next <em>owner, successor, or phase.</em></h1>
+    <p class="hero__lede">A focused engagement that identifies where revenue is leaking, reduces how much the business depends on you personally, captures the judgment and knowledge that only exist in your head, and produces usable handoff materials — before you're already sitting across from a buyer.</p>
+    <div class="hero__cta">
+      <a class="btn btn--dark" href="#path">Explore the Diagnostic</a>
+      <a class="link-light" href="#what-it-does">See how it works ↓</a>
+    </div>
+  </div>
+</header>
+
+<section class="section--light" id="recognition">
+  <div class="wrap wrap--narrow">
+    <div class="section-head">
+      <span class="eyebrow">You may be here if…</span>
+      <h2 class="h-title">This will sound familiar.</h2>
+    </div>
+    <ul class="recog-list">
+      <li><span class="mark">✓</span> You're considering a sale, succession, retirement, or leadership transition within the next several years.</li>
+      <li><span class="mark">✓</span> The business still relies on you to make important decisions or handle the unusual situations that don't fit a manual.</li>
+      <li><span class="mark">✓</span> Your employees know their part of the work, but no one — including you — has the complete picture written down.</li>
+      <li><span class="mark">✓</span> Dormant customers, old leads, missed inquiries, weak referrals, or inconsistent follow-up represent real, recoverable opportunity you haven't gotten to.</li>
+      <li><span class="mark">✓</span> You want the company to stay valuable and functional beyond your personal presence — whether or not you leave anytime soon.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section--dark" id="why-it-matters">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why this matters financially</span>
+      <h2 class="h-title">Operations and value are the same problem.</h2>
+      <p class="sub">A business that depends on one person, holds its knowledge in that person's head, and lets revenue quietly leak out the side is harder to run, harder to hand off, and harder for anyone else to trust — buyer, successor, or your own future self.</p>
+    </div>
+    <div class="reason-grid">
+      <div class="reason-card"><span class="num">01</span><p>Owner dependence makes a business harder to run without the owner in the room.</p></div>
+      <div class="reason-card"><span class="num">02</span><p>Undocumented knowledge creates real transition risk — for a sale, a successor, or an unplanned absence.</p></div>
+      <div class="reason-card"><span class="num">03</span><p>Revenue leakage means the business may be leaving money behind well before any sale or transition conversation starts.</p></div>
+      <div class="reason-card"><span class="num">04</span><p>Poorly organized operations make due diligence and handoff slower and more stressful for everyone involved.</p></div>
+      <div class="reason-card"><span class="num">05</span><p>A buyer or successor needs more than financial statements — they need to understand how the business actually works.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section--light" id="what-it-does">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What the engagement does</span>
+      <h2 class="h-title">Three connected layers, not three separate projects.</h2>
+      <p class="sub">Revenue recovery, knowledge capture, and transferability reinforce each other. Recovering revenue funds the work. Capturing knowledge is what makes the business transferable. Transferability is what makes the recovered revenue and the captured knowledge actually usable by someone other than you.</p>
+    </div>
+    <div class="layer-list">
+      <div class="layer">
+        <div class="layer__num">01</div>
+        <div>
+          <p class="layer__name">Revenue Recovery</p>
+          <p class="layer__what">We review dormant customers, missed leads, follow-up gaps, reviews, referrals, and response time — the places money is quietly slipping through.</p>
+        </div>
+        <div>
+          <p class="layer__benefit-label">Owner benefit</p>
+          <p class="layer__benefit">Recovered activity now, and a clear picture of where the immediate opportunity is.</p>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="layer__num">02</div>
+        <div>
+          <p class="layer__name">Knowledge Capture</p>
+          <p class="layer__what">ChatGPT or Claude conducts a private, adaptive interview with you — one question at a time — to surface how you actually run things.</p>
+        </div>
+        <div>
+          <p class="layer__benefit-label">Owner benefit</p>
+          <p class="layer__benefit">Your judgment, exceptions, and unwritten rules turned into knowledge someone else can actually use.</p>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="layer__num">03</div>
+        <div>
+          <p class="layer__name">Transferability</p>
+          <p class="layer__what">We build process maps, decision guides, role materials, and handoff assets from what's recovered and captured.</p>
+        </div>
+        <div>
+          <p class="layer__benefit-label">Owner benefit</p>
+          <p class="layer__benefit">A business that's meaningfully easier for someone else to understand, run, and eventually take over.</p>
+        </div>
+      </div>
+    </div>
+    <p class="named-systems">This work runs through two systems built for exactly this: <strong>AI Front Office</strong>, which handles the day-to-day recovery and response work, and <strong>Body of Knowledge</strong>, which structures what gets captured from you. You don't need to learn either one — you need the result they produce.</p>
+  </div>
+</section>
+
+<section class="section--dark" id="extraction">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The knowledge-extraction experience</span>
+      <h2 class="h-title">Not a long interview. Not a form to fill out alone.</h2>
+      <p class="sub">This is the part that's genuinely different from "write down your SOPs" — and it's worth understanding before you commit.</p>
+    </div>
+    <div class="extract-grid">
+      <ul class="extract-points">
+        <li>You don't sit through a conventional, long-form interview with April. ChatGPT or Claude asks one question at a time, and follows the threads that matter based on what you say.</li>
+        <li>You respond however is easiest — by voice or by text.</li>
+        <li>Sessions pause and resume. You don't have to get it all out in one sitting.</li>
+        <li>The system is specifically listening for decisions, exceptions, relationships, judgment calls, red flags, and escalation logic — the things that don't show up in a job description.</li>
+        <li>You review and validate everything the process produces before it becomes a final asset. Nothing goes into your handoff materials without your sign-off.</li>
+      </ul>
+      <div class="extract-side">
+        <h3>April's role in this</h3>
+        <p>April designs the extraction system, governs what it produces, and assembles the final materials. The AI reduces how much time and energy the interview costs you — it doesn't run the engagement, and it doesn't replace your participation.</p>
+        <p>You still have to show up and answer. That part can't be automated. What changes is how much easier it is to do.</p>
+        <div class="callout">The AI lowers the burden of the interview. It does not eliminate your role in it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--light" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it runs</span>
+      <h2 class="h-title">Three phases, in order.</h2>
+    </div>
+    <div class="phase-list">
+      <div class="phase">
+        <div class="phase__num">PHASE<span>01</span></div>
+        <div>
+          <h3>Diagnose and establish the baseline</h3>
+          <p>Map revenue leakage, owner dependency, critical workflows, and transition risks — so we're working from what's actually true about your business, not assumptions.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase__num">PHASE<span>02</span></div>
+        <div>
+          <h3>Recover and capture</h3>
+          <p>Run a focused revenue-recovery intervention while extracting your operating knowledge through the guided interview process.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase__num">PHASE<span>03</span></div>
+        <div>
+          <h3>Operationalize and hand off</h3>
+          <p>Turn what's been recovered and captured into usable process materials, decision guides, role documentation, and buyer- or successor-ready assets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--dim" id="deliverables">
+  <div class="wrap wrap--narrow">
+    <div class="section-head">
+      <span class="eyebrow">What you receive</span>
+      <h2 class="h-title">Concrete assets, not a report you read once.</h2>
+    </div>
+    <ul class="deliver-grid">
+      <li>Revenue and owner-dependency readiness map</li>
+      <li>Prioritized action plan</li>
+      <li>Reactivation or other selected revenue-recovery campaign</li>
+      <li>Owner knowledge vault</li>
+      <li>Critical-process maps</li>
+      <li>SOP inputs and decision guides</li>
+      <li>Exception, escalation, and relationship documentation</li>
+      <li>Selected lead, review, referral, or response systems</li>
+      <li>Buyer- or successor-ready handoff package</li>
+      <li>Recommendations for ongoing upkeep</li>
+    </ul>
+    <p class="deliver-note">Exact scope depends on the diagnostic and the number and complexity of your critical workflows — this list is what's typically included, not a fixed checklist.</p>
+  </div>
+</section>
+
+<section class="section--light" id="fit">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Who this is — and isn't — for</span>
+      <h2 class="h-title">Fit matters more than enthusiasm.</h2>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-col fit-col--yes">
+        <h3>Good fit</h3>
+        <ul>
+          <li>Established, owner-operated businesses</li>
+          <li>Existing customers, leads, or meaningful relationships to work with</li>
+          <li>A real transition horizon — succession, retirement, sale, or leadership change</li>
+          <li>Important knowledge still concentrated in the owner</li>
+          <li>Willingness to provide source material and validate the work</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-col--no">
+        <h3>Not the right fit</h3>
+        <ul>
+          <li>Empty startups without operating history</li>
+          <li>Owners looking only for a valuation number</li>
+          <li>Businesses seeking legal, accounting, brokerage, or financial advice</li>
+          <li>Owners unwilling to participate in knowledge validation</li>
+          <li>Anyone expecting guaranteed revenue, valuation, or sale results</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--dark" id="path">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The engagement path</span>
+      <h2 class="h-title">Start with the diagnostic. Decide from there.</h2>
+      <p class="sub">Everything begins with a paid diagnostic — not a free consultation, and not a menu of AI tools to pick from. It's a real, standalone deliverable that also tells us whether the larger engagement makes sense.</p>
+    </div>
+    <div class="path-grid">
+      <div class="path-card path-card--featured">
+        <div class="tag">Step 1 — Entry point</div>
+        <h3>Revenue &amp; Owner-Dependency Diagnostic</h3>
+        <div class="price">$2,500 – $3,500<small>Fixed-scope, paid engagement</small></div>
+        <p class="desc">A focused assessment that maps where revenue is leaking, how dependent the business is on you, and where the transition risks sit — with a prioritized action plan you keep either way.</p>
+      </div>
+      <div class="path-card">
+        <div class="tag">Step 2 — If it makes sense</div>
+        <h3>Recovery, Capture &amp; Handoff Engagement</h3>
+        <div class="price">$10,000 – $25,000<small>Scope-based, set after the diagnostic</small></div>
+        <p class="desc">The full engagement across revenue recovery, knowledge capture, and transferability. Working pricing based on the number and complexity of your critical workflows — not a fixed or guaranteed rate.</p>
+      </div>
+    </div>
+    <div class="continuity-note"><strong>After the engagement:</strong> some owners choose to continue with automation monitoring, periodic knowledge updates, ongoing revenue-recovery campaigns, or regular reporting and upkeep. This is introduced later, only if it's useful — never assumed upfront.</div>
+    <div class="path-cta"><a class="btn btn--primary" href="#contact">Start with the Diagnostic</a></div>
+  </div>
+</section>
+
+<section class="section--light" id="boundaries">
+  <div class="wrap wrap--narrow">
+    <div class="section-head">
+      <span class="eyebrow">Boundaries &amp; trust</span>
+      <h2 class="h-title">What this work doesn't claim to be.</h2>
+    </div>
+    <ul class="boundary-list">
+      <li>It does not replace valuation, brokerage, legal, accounting, or financial planning advice.</li>
+      <li>It does not guarantee a sale, or any specific increase in value.</li>
+      <li>It does not turn your business into an automated machine overnight.</li>
+      <li>It is not a substitute for your own professional advisors during an actual transaction.</li>
+    </ul>
+    <p class="boundary-affirm">What it does do: create clearer operations, documented knowledge, recovered activity, and a business that's genuinely better prepared for whatever transition comes next.</p>
+  </div>
+</section>
+
+<section class="section--dim" id="about">
+  <div class="wrap wrap--narrow">
+    <span class="eyebrow">About April</span>
+    <div class="about-wrap">
+      <div class="about-mark">A</div>
+      <div>
+        <p class="name">Principal, AI Front Office</p>
+        <p>April is an experienced operator who has worked inside complex organizations long enough to recognize the same patterns everywhere: critical knowledge stuck in one person's head, revenue leaking through gaps no one's watching, and operations that work — as long as nothing changes.</p>
+        <p>She's a systems architect and pattern-recognition specialist by disposition, skilled at finding the structure inside operations that feel too tangled to document. She designs the extraction, revenue-recovery, and handoff system behind this engagement, and personally governs what comes out of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--light" id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div class="contact-panel__intro">
+        <h2>Let's see if this fits.</h2>
+        <p>Tell me a bit about your business and where you are in your timeline. I'll follow up to talk through whether the diagnostic is the right next step.</p>
+        <ul>
+          <li>No obligation to continue past the diagnostic</li>
+          <li>You keep the readiness map and action plan either way</li>
+          <li>One reply, no automated sequence</li>
+        </ul>
+      </div>
+      <div>
+        <form id="ownerForm" novalidate>
+          <div class="field">
+            <label for="o-name">Name</label>
+            <input type="text" id="o-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="o-email">Email</label>
+            <input type="email" id="o-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="o-business">Business name &amp; type</label>
+            <input type="text" id="o-business" name="business" placeholder="e.g. Riverside HVAC, 14 years in operation" required>
+          </div>
+          <div class="field">
+            <label for="o-timeline">Where are you in your timeline? <span class="opt">(optional)</span></label>
+            <select id="o-timeline" name="timeline">
+              <option value="">Select one</option>
+              <option>Just starting to think about it</option>
+              <option>1–3 years out</option>
+              <option>Actively preparing</option>
+              <option>Currently in a process</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="o-note">What's prompting this now? <span class="opt">(optional)</span></label>
+            <textarea id="o-note" name="note" placeholder="A bit of context helps me prepare before we talk."></textarea>
+          </div>
+          <div style="position:absolute; left:-9999px;" aria-hidden="true">
+            <label for="o-company">Company</label>
+            <input type="text" id="o-company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit">Request the Diagnostic Conversation</button>
+          <p class="form-microcopy">You'll hear back directly from April. No mailing list, no spam.</p>
+        </form>
+        <div class="confirm" id="ownerConfirm">
+          <div class="stamp-mark">Received</div>
+          <p>Thanks — I'll follow up personally to talk through next steps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>AI Front Office — Owner Diagnostic</span>
+    <a href="mailto:globalvibecreative@gmail.com">globalvibecreative@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // TODO: replace with your Google Form's action URL and entry IDs.
+  var GOOGLE_FORM_ACTION = 'REPLACE_WITH_FORM_RESPONSE_URL';
+  var FIELD_ENTRIES = {
+    name: 'REPLACE_WITH_ENTRY_ID',
+    email: 'REPLACE_WITH_ENTRY_ID',
+    business: 'REPLACE_WITH_ENTRY_ID',
+    timeline: 'REPLACE_WITH_ENTRY_ID',
+    note: 'REPLACE_WITH_ENTRY_ID'
+  };
+
+  var form = document.getElementById('ownerForm');
+  var confirmBlock = document.getElementById('ownerConfirm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (form.company.value) {
+      form.style.display = 'none';
+      confirmBlock.classList.add('is-visible');
+      return;
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    var data = new FormData();
+    data.append(FIELD_ENTRIES.name, form.name.value);
+    data.append(FIELD_ENTRIES.email, form.email.value);
+    data.append(FIELD_ENTRIES.business, form.business.value);
+    data.append(FIELD_ENTRIES.timeline, form.timeline.value);
+    data.append(FIELD_ENTRIES.note, form.note.value);
+
+    var params = new URLSearchParams();
+    data.forEach(function (value, key) { params.append(key, value); });
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    }).then(function () {
+      form.style.display = 'none';
+      confirmBlock.classList.add('is-visible');
+    }).catch(function () {
+      form.style.display = 'none';
+      confirmBlock.classList.add('is-visible');
+    });
+  });
+</script>
+
+</body>
+</html>
