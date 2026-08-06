@@ -11,25 +11,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --orange: #f0741c;
-    --orange-deep: #d9600f;
-    --orange-light: #f5a461;
-    --brown: #3b2415;
-    --brown-2: #4a2e1b;
-    --brown-3: #5a3820;
-    --cream: #fbf3e2;
-    --cream-dim: #f3e4c8;
-    --ink: #2b1b10;
-    --ink-70: rgba(43,27,16,.7);
-    --ink-55: rgba(43,27,16,.55);
-    --ink-40: rgba(43,27,16,.4);
-    --ink-15: rgba(43,27,16,.15);
-    --cream-80: rgba(251,243,226,.82);
-    --cream-60: rgba(251,243,226,.6);
-    --cream-35: rgba(251,243,226,.35);
-    --cream-18: rgba(251,243,226,.18);
-    --rust: #c94a2c;
-    --line: rgba(43,27,16,.14);
+    --orange: #f78001;        /* Gold Drop */
+    --orange-deep: #d57731;   /* Brandy Punch */
+    --orange-light: #e58628;  /* Zest */
+    --brown: #281b0a;         /* El Paso */
+    --brown-2: #442b0e;
+    --brown-3: #573612;
+    --cream: #fde6d6;         /* Cinderella */
+    --cream-dim: #fbdcc5;
+    --ink: #281b0a;           /* El Paso, doubling as body ink */
+    --ink-70: rgba(40,27,10,.7);
+    --ink-55: rgba(40,27,10,.55);
+    --ink-40: rgba(40,27,10,.4);
+    --ink-15: rgba(40,27,10,.15);
+    --cream-80: rgba(253,230,214,.82);
+    --cream-60: rgba(253,230,214,.6);
+    --cream-35: rgba(253,230,214,.35);
+    --cream-18: rgba(253,230,214,.18);
+    --rust: #c9562e;          /* Tuscany */
+    --brick: #8e2509;         /* Totem Pole */
+    --line: rgba(40,27,10,.14);
   }
 
   * { box-sizing: border-box; }
@@ -317,11 +318,11 @@
   .fit-col--no { background: var(--cream-dim); }
   .fit-col h3 { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 20px; font-weight: 800; }
   .fit-col--yes h3 { color: #3f6b4d; }
-  .fit-col--no h3 { color: var(--rust); }
+  .fit-col--no h3 { color: var(--brick); }
   .fit-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
   .fit-col li { display: flex; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1.55; color: var(--ink-70); }
   .fit-col--yes li::before { content: "✓"; color: #3f6b4d; flex-shrink: 0; font-weight: 700; }
-  .fit-col--no li::before { content: "✕"; color: var(--rust); flex-shrink: 0; font-weight: 700; }
+  .fit-col--no li::before { content: "✕"; color: var(--brick); flex-shrink: 0; font-weight: 700; }
 
   /* Path & investment */
   .path-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; }
@@ -363,7 +364,7 @@
   .boundary-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 16px; }
   .boundary-list li { display: flex; gap: 14px; font-size: 15.5px; font-weight: 500; line-height: 1.6; color: var(--ink-70); padding-bottom: 16px; border-bottom: 1px solid var(--line); }
   .boundary-list li:last-of-type { border-bottom: none; }
-  .boundary-list li::before { content: "✕"; color: var(--rust); flex-shrink: 0; font-weight: 700; }
+  .boundary-list li::before { content: "✕"; color: var(--brick); flex-shrink: 0; font-weight: 700; }
   .boundary-affirm {
     margin-top: 30px;
     padding: 24px 26px;
