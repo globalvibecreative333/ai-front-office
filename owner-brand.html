@@ -251,9 +251,11 @@
     }
     .item .title em { font-style: italic; color: var(--accent); }
     .item .desc { grid-column: 2; max-width: 60ch; font-size: 1.02rem; line-height: 1.6; color: var(--ink-soft); margin: 0.6rem 0 0; }
-    .item .tagword {
-      font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--muted); padding-top: 0.55rem; text-align: right; max-width: 12ch; white-space: normal;
+    .item--wide { grid-template-columns: 4rem 1fr; }
+    .item .benefit { grid-column: 2; max-width: 60ch; font-size: 0.95rem; line-height: 1.5; color: var(--muted); margin: 0.6rem 0 0; }
+    .item .benefit-label {
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-right: 0.6rem;
     }
     .item::after {
       content: ""; position: absolute; left: 0; top: 0; bottom: -1px; width: 2px;
@@ -263,7 +265,6 @@
     .item:hover::after { transform: scaleY(1); }
     @media (max-width: 720px) {
       .item { grid-template-columns: 2.5rem 1fr; gap: 0.75rem; }
-      .item .tagword { grid-column: 2; text-align: left; padding-top: 0.4rem; max-width: none; }
       .item .desc { grid-column: 2; }
     }
 
@@ -297,6 +298,7 @@
       padding-bottom: 5.5rem;
     }
     @media (max-width: 900px) { .whofor { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .whofor--single { grid-template-columns: 1fr; max-width: 70ch; }
     .whofor ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
     .whofor li {
       position: relative; padding-left: 1.6rem; font-size: 1.08rem; line-height: 1.6; color: var(--ink-soft);
@@ -557,7 +559,6 @@
           <p class="subhead">
             A focused engagement that identifies where revenue is leaking, reduces how much the business depends on you personally, captures the judgment and knowledge that only exist in your head, and produces <em>usable handoff materials.</em>
           </p>
-          <p class="hero-tagline">Not six AI tools. Not another SOP template. One engagement connecting revenue recovery, knowledge capture, and handoff.</p>
         </div>
         <div class="cta-row">
           <a class="btn" href="#path">
@@ -586,7 +587,7 @@
     </div>
   </section>
 
-  <section class="container whofor reveal">
+  <section class="container whofor whofor--single reveal">
     <ul>
       <li>You're considering a sale, succession, retirement, or leadership transition within the next several years.</li>
       <li>The business still relies on you to make important decisions or handle the unusual situations that don't fit a manual.</li>
@@ -594,10 +595,6 @@
       <li>Dormant customers, old leads, missed inquiries, weak referrals, or inconsistent follow-up represent real, recoverable opportunity you haven't gotten to.</li>
       <li>You want the company to stay valuable and functional beyond your personal presence — whether or not you leave anytime soon.</li>
     </ul>
-    <div class="figure pull-quote">
-      <blockquote>The business doesn't need to be broken for this to matter. It just needs to depend on you more than it should.</blockquote>
-      <figcaption>Where most owners actually are</figcaption>
-    </div>
   </section>
 
   <!-- WHY THIS MATTERS -->
@@ -613,8 +610,8 @@
     <p class="statement-kicker">A buyer or successor needs more than financial statements. They need to understand how the business actually works.</p>
     <div class="statement-body">
       <h2 class="statement-lead">Operations and value are <em>the same problem.</em></h2>
-      <p>Owner dependence makes a business harder to run without the owner in the room. Undocumented knowledge creates real transition risk — for a sale, a successor, or an unplanned absence. And revenue leakage means the business may be leaving money behind well before any sale or transition conversation starts.</p>
-      <p>Poorly organized operations make due diligence and handoff slower and more stressful for everyone involved. None of this is about promising a bigger number at closing — it's about the business being something someone else can actually trust and run.</p>
+      <p>Owner dependence makes a business harder to run without the owner. Undocumented knowledge creates transition risk. Revenue leakage means the business may be leaving money behind before a sale or transition.</p>
+      <p>Poorly organized operations make due diligence and handoff more difficult.</p>
     </div>
   </section>
 
@@ -629,29 +626,29 @@
 
   <section class="container reveal" id="what-it-does">
     <ul class="items">
-      <li class="item">
+      <li class="item item--wide">
         <span class="num">01</span>
         <div>
           <h3 class="title">Revenue <em>Recovery</em></h3>
           <p class="desc">We review dormant customers, missed leads, follow-up gaps, reviews, referrals, and response time — the places money is quietly slipping through.</p>
+          <p class="benefit"><span class="benefit-label">Owner benefit</span> Recover activity and identify immediate opportunity.</p>
         </div>
-        <span class="tagword">Recovered activity, now</span>
       </li>
-      <li class="item">
+      <li class="item item--wide">
         <span class="num">02</span>
         <div>
           <h3 class="title">Knowledge <em>Capture</em></h3>
           <p class="desc">ChatGPT or Claude conducts a private, adaptive interview with you — one question at a time — to surface how you actually run things.</p>
+          <p class="benefit"><span class="benefit-label">Owner benefit</span> Convert owner-held judgment and exceptions into usable knowledge.</p>
         </div>
-        <span class="tagword">Judgment, made usable</span>
       </li>
-      <li class="item">
+      <li class="item item--wide">
         <span class="num">03</span>
         <div>
           <h3 class="title"><em>Transferability</em></h3>
           <p class="desc">We build process maps, decision guides, role materials, and handoff assets from what's recovered and captured.</p>
+          <p class="benefit"><span class="benefit-label">Owner benefit</span> Make the business easier for another person to operate and understand.</p>
         </div>
-        <span class="tagword">Easier to hand off</span>
       </li>
     </ul>
     <div class="named-systems">
@@ -669,25 +666,11 @@
     </div>
   </section>
 
-  <section class="container demo reveal">
-    <div class="demo-copy">
+  <section class="container reveal">
+    <div class="demo-copy" style="max-width: 70ch;">
       <p>You don't sit through a conventional, long-form interview with April. ChatGPT or Claude asks one question at a time, and follows the threads that matter based on what you say. You respond however is easiest — by voice or by text — and sessions pause and resume, so you don't have to get it all out in one sitting.</p>
       <p>The system is specifically listening for decisions, exceptions, relationships, judgment calls, red flags, and escalation logic — the things that don't show up in a job description. You review and validate everything it produces before it becomes a final asset.</p>
       <p><em>April designs the extraction system, governs what it produces, and assembles the final materials.</em> The AI reduces how much time and energy the interview costs you — it doesn't run the engagement, and it doesn't replace your participation.</p>
-    </div>
-    <div class="demo-card">
-      <div class="demo-window">
-        <div class="demo-topbar">
-          <span class="d"></span><span class="d"></span><span class="d"></span>
-          <span class="cap">Knowledge session · paused</span>
-        </div>
-        <div class="chat">
-          <div class="bubble bubble-ai">Walk me through what happens when a job comes in that doesn't fit the usual pattern.</div>
-          <div class="bubble bubble-you">Usually I'd just handle it myself, but there's a rule of thumb I use for when to loop in the crew lead...</div>
-          <div class="bubble bubble-ai">What tells you it's a "loop them in" situation versus one you handle solo?</div>
-          <div class="typing">● ● ● listening</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -702,29 +685,26 @@
 
   <section class="container reveal">
     <ul class="items">
-      <li class="item">
+      <li class="item item--wide">
         <span class="num">01</span>
         <div>
           <h3 class="title">Diagnose &amp; establish the <em>baseline</em></h3>
           <p class="desc">Map revenue leakage, owner dependency, critical workflows, and transition risks — so we're working from what's actually true about your business, not assumptions.</p>
         </div>
-        <span class="tagword">The diagnostic</span>
       </li>
-      <li class="item">
+      <li class="item item--wide">
         <span class="num">02</span>
         <div>
           <h3 class="title">Recover &amp; <em>capture</em></h3>
           <p class="desc">Run a focused revenue-recovery intervention while extracting your operating knowledge through the guided interview process.</p>
         </div>
-        <span class="tagword">The core work</span>
       </li>
-      <li class="item">
+      <li class="item item--wide">
         <span class="num">03</span>
         <div>
           <h3 class="title">Operationalize &amp; <em>hand off</em></h3>
           <p class="desc">Turn what's been recovered and captured into usable process materials, decision guides, role documentation, and buyer- or successor-ready assets.</p>
         </div>
-        <span class="tagword">What you keep</span>
       </li>
     </ul>
   </section>
@@ -853,15 +833,14 @@
     </div>
   </section>
 
-  <section class="container reveal">
-    <dl class="qa">
-      <dt>Does this guarantee a higher sale price?</dt>
-      <dd>No. It does not replace valuation, brokerage, legal, accounting, or financial planning advice, and it does not guarantee a sale or any specific increase in value.</dd>
-      <dt>Will this turn my business into something fully automated?</dt>
-      <dd>No. It does not turn your business into an automated machine overnight, and it's not a substitute for your own professional advisors during an actual transaction.</dd>
-      <dt>So what does it actually do?</dt>
-      <dd class="qa-affirm">It creates clearer operations, documented knowledge, recovered activity, and a business that's genuinely better prepared for whatever transition comes next.</dd>
-    </dl>
+  <section class="container whofor whofor--single reveal">
+    <ul>
+      <li>It does not replace valuation, brokerage, legal, accounting, or financial planning advice.</li>
+      <li>It does not guarantee a sale, or any specific increase in value.</li>
+      <li>It does not turn your business into an automated machine overnight.</li>
+      <li>It is not a substitute for your own professional advisors during an actual transaction.</li>
+    </ul>
+    <p class="qa-affirm">What it does do: create clearer operations, documented knowledge, recovered activity, and a business that's genuinely better prepared for whatever transition comes next.</p>
   </section>
 
   <!-- ABOUT -->
